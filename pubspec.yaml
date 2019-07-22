@@ -1,6 +1,6 @@
 name: stemmer
-description: A NLTK-port to do stemming in Dart / Flutter.
-version: 1.0.0
+description: A NLTK-port to perform stemming in Dart / Flutter and reduce words to its base.
+version: 1.1.0
 author: Jelmer Borst <japborst@gmail.com>
 homepage: https://github.com/japborst/dart_stemmer
 
@@ -8,5 +8,6 @@ environment:
   sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
+  test: ^1.6.5
 
 dev_dependencies:

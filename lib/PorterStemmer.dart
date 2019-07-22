@@ -1,3 +1,19 @@
+/// A word stemmer based on the Porter stemming algorithm.
+///     Porter, M. "An algorithm for suffix stripping."
+///     Program 14.3 (1980): 130-137.
+///
+/// See http://www.tartarus.org/~martin/PorterStemmer/ for the homepage
+/// of the algorithm.
+///
+/// Martin Porter has endorsed several modifications to the Porter
+/// algorithm since writing his original paper, and those extensions are
+/// included in the implementations on his website. Additionally, others
+/// have proposed further improvements to the algorithm, including NLTK
+/// contributors.
+///
+/// This implementation includes further improvements devised by
+/// NLTK contributors or taken from other modified implementations
+/// found on the web.
 class PorterStemmer {
   PorterStemmer() {
     _irregularForms.forEach((String key, List<String> value) {
