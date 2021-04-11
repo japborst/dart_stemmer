@@ -178,7 +178,7 @@ class PorterStemmer {
     for (List rule in rules) {
       String suffix = rule[0];
       String replacement = rule[1];
-      Function condition = rule[2];
+      Function? condition = rule[2];
 
       String stem;
       if (suffix == '*d' && _endsDoubleConsonant(word)) {
@@ -287,7 +287,7 @@ class PorterStemmer {
 
     bool rule2Or3Succeeded = false;
 
-    String intermediateStem;
+    String intermediateStem = "";
     for (String suffix in ['ed', 'ing']) {
       if (word.endsWith(suffix)) {
         intermediateStem = _replaceSuffix(word, suffix, '');
@@ -593,7 +593,7 @@ class PorterStemmer {
     String stem = word.toLowerCase();
 
     if (_pool.containsKey(word)) {
-      return _pool[word];
+      return _pool[word]!;
     }
 
     if (word.length <= 2) {
