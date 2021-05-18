@@ -1,8 +1,9 @@
 # stemmer
 
 This package implements a [stemming](https://en.wikipedia.org/wiki/Stemming) algorithm in Dart.
-Currently, it only supports [PorterStemmer](https://tartarus.org/martin/PorterStemmer/). It is a
-port of the exceptional [Python NLTK](https://github.com/nltk/nltk) library.
+Currently, it supports [PorterStemmer](https://tartarus.org/martin/PorterStemmer/) and
+[SnowballStemmer](https://snowballstem.org/). It is a port of the exceptional
+[Python NLTK](https://github.com/nltk/nltk) library.
 
 ## About
 
@@ -12,10 +13,20 @@ cases, the word will not even be recognisable. Where, for example, `running` wou
 
 ## Example
 
+### PorterStemmer
+
 ```dart
 import 'package:stemmer/stemmer.dart';
 
 PorterStemmer stemmer = PorterStemmer();
-stemmer.stem('running');
-// run
+stemmer.stem('running'); // output: run
+```
+
+### SnowballStemmer
+
+```dart
+import 'package:stemmer/stemmer.dart';
+
+SnowballStemmer stemmer = SnowballStemmer();
+stemmer.stem('running'); // output: run
 ```

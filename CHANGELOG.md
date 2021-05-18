@@ -1,6 +1,11 @@
+## [2.1.0] - 18/5/2021
+
+- Added SnowballStemmer.
+- Improved `README.md` with example.
+
 ## [2.0.0] - 11/4/2021
 
-- Added null-safety
+- Added null-safety.
 
 ## [1.1.0] - 22/7/2019
 
