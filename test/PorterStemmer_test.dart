@@ -3,13 +3,27 @@ import "package:test/test.dart";
 import '../lib/stemmer.dart';
 
 void main() {
+  PorterStemmer stemmer = PorterStemmer();
+
   test("Can stem", () {
-    PorterStemmer stemmer = PorterStemmer();
     expect(stemmer.stem('running'), equals('run'));
   });
 
+  test("Stems lowercase by default", () {
+    expect(stemmer.stem("Running"), equals("run"));
+  });
+
+  test("Stems case-sensitive when set", () {
+    expect(stemmer.stem("JumPing", toLowerCase: false), equals("JumP"));
+  });
+
+  test("Stems only the last word in a sentence", () {
+    String sentence = "Kicking running JumPing";
+    expect(sentence.split(" ").map((s) => stemmer.stem(s)).join(" "),
+        equals("kick run jump"));
+  });
+
   test("Can correctly stem various plurals", () {
-    PorterStemmer stemmer = PorterStemmer();
     List<String> plurals = [
       'caresses',
       'flies',

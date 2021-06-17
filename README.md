@@ -19,7 +19,7 @@ cases, the word will not even be recognisable. Where, for example, `running` wou
 import 'package:stemmer/stemmer.dart';
 
 PorterStemmer stemmer = PorterStemmer();
-stemmer.stem('running'); // output: run
+stemmer.stem('running'); // outputs: run
 ```
 
 ### SnowballStemmer
@@ -28,5 +28,16 @@ stemmer.stem('running'); // output: run
 import 'package:stemmer/stemmer.dart';
 
 SnowballStemmer stemmer = SnowballStemmer();
-stemmer.stem('running'); // output: run
+stemmer.stem('running'); // outputs: run
+```
+
+## Case sentitive stemming
+The default behaviour is to always return lowercase stemmed words. However, if you wish you can keep 
+the original casing.
+
+```dart
+import 'package:stemmer/stemmer.dart';
+
+SnowballStemmer stemmer = PorterStemmer();
+stemmer.stem('Running'); // outputs: Run
 ```

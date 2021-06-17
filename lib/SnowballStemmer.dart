@@ -140,8 +140,8 @@ class SnowballStemmer {
 
   String _word = '';
 
-  String stem(String origWord) {
-    _word = origWord.toLowerCase();
+  String stem(String origWord, {toLowerCase: true}) {
+    _word = toLowerCase ? origWord.toLowerCase() : origWord;
 
     // TODO(jeffbailey): Check stopwords
     if (_word.length <= 2) return _word;

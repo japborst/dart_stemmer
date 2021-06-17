@@ -589,8 +589,10 @@ class PorterStemmer {
 
   /// Stems [word]. Only stems words that are at least 3 characters,
   /// otherwise will return [word].
-  String stem(String word) {
-    String stem = word.toLowerCase();
+  String stem(String word, {toLowerCase = true}) {
+    assert(toLowerCase != null, "toLowerCase cannot be null");
+
+    String stem = toLowerCase ? word.toLowerCase() : word;
 
     if (_pool.containsKey(word)) {
       return _pool[word]!;
@@ -600,7 +602,7 @@ class PorterStemmer {
       // With this line, strings of length 1 or 2 don't go through
       // the stemming process, although no mention is made of this
       // in the published algorithm.
-      return word;
+      return stem;
     }
 
     stem = _step1a(stem);
