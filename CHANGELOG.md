@@ -1,3 +1,7 @@
+## [2.2.0] - 17/6/2021
+
+- Added toLowerCase option for PorterStemmer and SnowballStemmer
+
 ## [2.1.0] - 18/5/2021
 
 - Added SnowballStemmer.
