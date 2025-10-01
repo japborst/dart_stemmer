@@ -19,17 +19,7 @@
 
 class SnowballStemmer {
   final _vowels = 'aeiouy';
-  final _doubleConsonants = [
-    'bb',
-    'dd',
-    'ff',
-    'gg',
-    'mm',
-    'nn',
-    'pp',
-    'rr',
-    'tt'
-  ];
+  final _doubleConsonants = ['bb', 'dd', 'ff', 'gg', 'mm', 'nn', 'pp', 'rr', 'tt'];
   final _liEnding = 'cdeghkmnrt';
   final _step0Suffixes = ["'s'", "'s", "'"];
   final _step1aSuffixes = ['sses', 'ied', 'ies', 'us', 'ss', 's'];
@@ -140,7 +130,7 @@ class SnowballStemmer {
 
   String _word = '';
 
-  String stem(String origWord, {toLowerCase: true}) {
+  String stem(String origWord, {toLowerCase = true}) {
     _word = toLowerCase ? origWord.toLowerCase() : origWord;
 
     // TODO(jeffbailey): Check stopwords
@@ -165,9 +155,7 @@ class SnowballStemmer {
       }
     }
 
-    if (_word.startsWith('gener') ||
-        _word.startsWith('commun') ||
-        _word.startsWith('arsen')) {
+    if (_word.startsWith('gener') || _word.startsWith('commun') || _word.startsWith('arsen')) {
       if (_word.startsWith('gener') || _word.startsWith('arsen')) {
         _r1 = _word.substring(5);
       } else {
@@ -309,9 +297,7 @@ class SnowballStemmer {
             _r1 = _stripEnd(_r1, suffix.length);
             _r2 = _stripEnd(_r2, suffix.length);
 
-            if (_word.endsWith('at') ||
-                _word.endsWith('bl') ||
-                _word.endsWith('iz')) {
+            if (_word.endsWith('at') || _word.endsWith('bl') || _word.endsWith('iz')) {
               _word = _word + 'e';
               _r1 = _r1 + 'e';
 
@@ -550,23 +536,21 @@ class SnowballStemmer {
     }
   }
 
-  String _safeSuffixReplace(String word, String oldSuffix, String newSuffix,
-          [String failureSuffix = '']) =>
-      word.length >= oldSuffix.length
-          ? _suffixReplace(word, oldSuffix, newSuffix)
-          : failureSuffix;
+  String _safeSuffixReplace(
+    String word,
+    String oldSuffix,
+    String newSuffix, [
+    String failureSuffix = '',
+  ]) =>
+      word.length >= oldSuffix.length ? _suffixReplace(word, oldSuffix, newSuffix) : failureSuffix;
 
-  String _safeSuffixReplaceLen(
-          String word, int oldSuffixLength, String newSuffix) =>
-      word.length >= oldSuffixLength
-          ? _suffixReplaceLen(word, oldSuffixLength, newSuffix)
-          : '';
+  String _safeSuffixReplaceLen(String word, int oldSuffixLength, String newSuffix) =>
+      word.length >= oldSuffixLength ? _suffixReplaceLen(word, oldSuffixLength, newSuffix) : '';
 
   String _suffixReplace(String word, String oldSuffix, String newSuffix) =>
       _suffixReplaceLen(word, oldSuffix.length, newSuffix);
 
-  String _suffixReplaceLen(
-          String word, int oldSuffixLength, String newSuffix) =>
+  String _suffixReplaceLen(String word, int oldSuffixLength, String newSuffix) =>
       word.substring(0, word.length - oldSuffixLength) + newSuffix;
 
   String _stripEnd(String word, int length) =>

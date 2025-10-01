@@ -1,3 +1,7 @@
+## [3.0.0] - 01/10/2025
+
+- Upgrade dependencies
+
 ## [2.2.0] - 17/6/2021
 
 - Added toLowerCase option for PorterStemmer and SnowballStemmer
