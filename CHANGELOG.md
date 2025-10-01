@@ -1,3 +1,7 @@
+## [3.1.0] - 01/10/2025
+
+- Upgrade test dependency
+
 ## [3.0.0] - 01/10/2025
 
 - Upgrade dependencies
