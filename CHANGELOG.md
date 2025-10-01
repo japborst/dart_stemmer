@@ -1,3 +1,7 @@
+## [3.2.0] - 01/10/2025
+
+- Make test dependency optional
+
 ## [3.1.0] - 01/10/2025
 
 - Upgrade test dependency
